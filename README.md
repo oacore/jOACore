@@ -13,7 +13,7 @@ This repository is one of our project for the Mozilla Global Sprint '17.
 ![Global Sprint](https://cloud.githubusercontent.com/assets/617994/24632585/b2b07dcc-1892-11e7-91cf-f9e473187cf7.png)
 
 ### How to contribute
-We need help to implement our Java API client. A full Swagger documentation is available at [https://core.ac.uk/docs/](https://core.ac.uk/docs/),
+We need help to implement our Java API client. A full Swagger documentation is available at [https://core.ac.uk/docs](https://core.ac.uk/docs),
 while you can find a usage example [here](src/test/java/uk/ac/core/oacore4j/articles/ArticlesServiceTest.java).
 Pull requests and feedback through the issues panel are highly encouraged and appreciated.
 
