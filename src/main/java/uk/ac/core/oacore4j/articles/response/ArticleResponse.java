@@ -9,18 +9,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import uk.ac.core.oacore4j.articles.response.json.Article;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "status",
     "data"
 })
-public class Article {
+public class ArticleResponse {
 
     @JsonProperty("status")
     private String status;
     @JsonProperty("data")
-    private Data data;
+    private Article data;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -35,12 +36,12 @@ public class Article {
     }
 
     @JsonProperty("data")
-    public Data getData() {
+    public Article getData() {
         return data;
     }
 
     @JsonProperty("data")
-    public void setData(Data data) {
+    public void setData(Article data) {
         this.data = data;
     }
 

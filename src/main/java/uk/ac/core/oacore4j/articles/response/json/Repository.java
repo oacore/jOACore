@@ -1,5 +1,5 @@
 
-package uk.ac.core.oacore4j.articles.response;
+package uk.ac.core.oacore4j.articles.response.json;
 
 import java.util.HashMap;
 import java.util.Map;

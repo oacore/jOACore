@@ -1,5 +1,5 @@
 
-package uk.ac.core.oacore4j.articles.response;
+package uk.ac.core.oacore4j.articles.response.json;
 
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "fulltextIdentifier",
     "oai"
 })
-public class Data {
+public class Article {
 
     @JsonProperty("id")
     private String id;

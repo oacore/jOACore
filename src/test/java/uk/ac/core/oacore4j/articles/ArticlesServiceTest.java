@@ -6,7 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import retrofit2.Call;
 import uk.ac.core.oacore4j.CoreService;
-import uk.ac.core.oacore4j.articles.response.Article;
+import uk.ac.core.oacore4j.articles.request.SearchRequest;
+import uk.ac.core.oacore4j.articles.request.SimilarRequest;
+import uk.ac.core.oacore4j.articles.response.ArticleResponse;
+import uk.ac.core.oacore4j.articles.response.ArticleSearchResponse;
+import uk.ac.core.oacore4j.articles.response.ArticleSimilarResponse;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -39,8 +43,8 @@ class ArticlesServiceTest {
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
 
-        Call<Article> request = coreService.getArticlesApi().getArticleById(42, params);
-        Article article = request.execute().body();
+        Call<ArticleResponse> request = coreService.getArticlesApi().getArticleById(42, params);
+        ArticleResponse article = request.execute().body();
 
         assert article != null;
         assert article.getStatus().equals("OK");
@@ -57,11 +61,74 @@ class ArticlesServiceTest {
 
         List<Integer> coreIds = Arrays.asList(42, 43);
 
-        Call<List<Article>> request = coreService.getArticlesApi().getArticlesById(coreIds, params);
-        List<Article> articles = request.execute().body();
+        Call<List<ArticleResponse>> request = coreService.getArticlesApi().getArticlesById(coreIds, params);
+        List<ArticleResponse> articleResponseList = request.execute().body();
 
-        assert articles != null;
-        assert articles.stream().allMatch(a -> a.getStatus().equals("OK"));
+        assert articleResponseList != null;
+        assert articleResponseList.stream().allMatch(a -> a.getStatus().equals("OK"));
+
+    }
+
+    @Test
+    void getSimilarArticles() throws IOException {
+
+        CoreService coreService = new CoreService(TEST_API_KEY);
+
+        HashMap<String, Object> params = new HashMap<>();
+        params.put(ArticlesService.CITATIONS, Boolean.TRUE);
+
+        SimilarRequest similarRequest = new SimilarRequest();
+        similarRequest.setText("semantic-web");
+
+        Call<ArticleSimilarResponse> request = coreService.getArticlesApi().getSimilarArticles(similarRequest, params);
+        ArticleSimilarResponse articleSimilarResponse = request.execute().body();
+
+        assert articleSimilarResponse != null;
+        assert articleSimilarResponse.getStatus().equals("OK");
+
+    }
+
+    @Test
+    void searchArticlesMultipleQueries() throws IOException {
+
+        CoreService coreService = new CoreService(TEST_API_KEY);
+
+        HashMap<String, Object> params = new HashMap<>();
+        params.put(ArticlesService.CITATIONS, Boolean.TRUE);
+
+        SearchRequest s1 = new SearchRequest();
+        s1.setQuery("semantic-web");
+        s1.setPage(0);
+        s1.setPageSize(1);
+
+        SearchRequest s2 = new SearchRequest();
+        s2.setQuery("artificial intelligence");
+        s2.setPage(0);
+        s2.setPageSize(1);
+
+        List<SearchRequest> searchRequestList = Arrays.asList(s1, s2);
+
+        Call<List<ArticleSearchResponse>> request = coreService.getArticlesApi().searchArticles(searchRequestList, params);
+        List<ArticleSearchResponse> articleSearchResponseList = request.execute().body();
+
+        assert articleSearchResponseList != null;
+        assert articleSearchResponseList.stream().allMatch(a -> a.getStatus().equals("OK"));
+
+    }
+
+    @Test
+    void searchArticlesSingleQuery() throws IOException {
+
+        CoreService coreService = new CoreService(TEST_API_KEY);
+
+        HashMap<String, Object> params = new HashMap<>();
+        params.put(ArticlesService.CITATIONS, Boolean.TRUE);
+
+        Call<ArticleSearchResponse> request = coreService.getArticlesApi().searchArticles("semantic-web", params);
+        ArticleSearchResponse articleSearchResponse = request.execute().body();
+
+        assert articleSearchResponse != null;
+        assert articleSearchResponse.getStatus().equals("OK");
 
     }
 
