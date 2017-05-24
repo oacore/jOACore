@@ -1,10 +1,10 @@
 package uk.ac.core.oacore4j.articles;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.http.*;
-import uk.ac.core.oacore4j.Utils;
 import uk.ac.core.oacore4j.articles.response.Article;
 
 import java.util.List;
@@ -60,12 +60,12 @@ public interface ArticlesService {
                                  @QueryMap Map<String, Object> options);
 
 
-    static ArticlesService serviceFactory(String apiKey){
+    static ArticlesService serviceFactory(OkHttpClient client){
 
         Retrofit retrofit = new Retrofit.Builder()
         .baseUrl(ArticlesService.CORE_HOST + ArticlesService.API_PATH)
         .addConverterFactory(JacksonConverterFactory.create())
-        .client(Utils.createClient(apiKey))
+        .client(client)
         .build();
 
         return retrofit.create(ArticlesService.class);
