@@ -1,6 +1,7 @@
 # oacore4j
 
 [![Build Status](https://travis-ci.org/oacore/oacore4j.svg?branch=master)](https://travis-ci.org/oacore/oacore4j)
+[![Gitter chat](https://badges.gitter.im/org.png)](https://gitter.im/oacore-mozsprint17/Lobby)
 
 A Java client for the [CORE API](https://core.ac.uk/docs/), based on [Retrofit 2](https://github.com/square/retrofit).
 
