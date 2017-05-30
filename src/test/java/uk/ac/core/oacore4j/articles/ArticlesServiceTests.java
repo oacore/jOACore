@@ -1,9 +1,6 @@
 package uk.ac.core.oacore4j.articles;
 
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import retrofit2.Call;
 import uk.ac.core.oacore4j.OACoreService;
 import uk.ac.core.oacore4j.articles.request.SearchRequest;
@@ -22,21 +19,13 @@ import java.util.List;
  * @since 23/05/2017
  */
 
-class ArticlesServiceTest {
+public class ArticlesServiceTests {
 
     /** this is just a testing API key, please register your own API key at: https://core.ac.uk/services#api */
     private static final String TEST_API_KEY = "btYj73TKGQahoUzL41yHANnJVeClvPIX";
 
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
-    void getArticleById() throws IOException {
+    public void getArticleById() throws IOException {
 
         OACoreService coreService = new OACoreService(TEST_API_KEY);
 
@@ -52,7 +41,7 @@ class ArticlesServiceTest {
     }
 
     @Test
-    void getArticlesById() throws IOException {
+    public void getArticlesById() throws IOException {
 
         OACoreService coreService = new OACoreService(TEST_API_KEY);
 
@@ -70,7 +59,7 @@ class ArticlesServiceTest {
     }
 
     @Test
-    void getSimilarArticles() throws IOException {
+    public void getSimilarArticles() throws IOException {
 
         OACoreService coreService = new OACoreService(TEST_API_KEY);
 
@@ -89,7 +78,7 @@ class ArticlesServiceTest {
     }
 
     @Test
-    void searchArticlesMultipleQueries() throws IOException {
+    public void searchArticlesMultipleQueries() throws IOException {
 
         OACoreService coreService = new OACoreService(TEST_API_KEY);
 
@@ -117,7 +106,7 @@ class ArticlesServiceTest {
     }
 
     @Test
-    void searchArticlesSingleQuery() throws IOException {
+    public void searchArticlesSingleQuery() throws IOException {
 
         OACoreService coreService = new OACoreService(TEST_API_KEY);
 
