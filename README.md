@@ -1,5 +1,7 @@
 # oacore4j
 
+[![Build Status](https://travis-ci.org/oacore/oacore4j.svg?branch=master)](https://travis-ci.org/oacore/oacore4j)
+
 A Java client for the [CORE API](https://core.ac.uk/docs/), based on [Retrofit 2](https://github.com/square/retrofit).
 
 [CORE](https://core.ac.uk)’s mission is to aggregate all open access research outputs from repositories and journals worldwide and make them available to the public. In this way CORE facilitates free unrestricted access to research for all. We are currently making avaialble 70 million of research outputs metadata and 7 million full text papers. We are looking for devs, designers, data scientists enthusiastic about facilitating the access to research to the world.
