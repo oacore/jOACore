@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import retrofit2.Call;
-import uk.ac.core.oacore4j.CoreService;
+import uk.ac.core.oacore4j.OACoreService;
 import uk.ac.core.oacore4j.articles.request.SearchRequest;
 import uk.ac.core.oacore4j.articles.request.SimilarRequest;
 import uk.ac.core.oacore4j.articles.response.ArticleResponse;
@@ -38,12 +38,12 @@ class ArticlesServiceTest {
     @Test
     void getArticleById() throws IOException {
 
-        CoreService coreService = new CoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(TEST_API_KEY);
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
 
-        Call<ArticleResponse> request = coreService.getArticlesApi().getArticleById(42, params);
+        Call<ArticleResponse> request = coreService.getArticlesService().getArticleById(42, params);
         ArticleResponse article = request.execute().body();
 
         assert article != null;
@@ -54,14 +54,14 @@ class ArticlesServiceTest {
     @Test
     void getArticlesById() throws IOException {
 
-        CoreService coreService = new CoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(TEST_API_KEY);
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
 
         List<Integer> coreIds = Arrays.asList(42, 43);
 
-        Call<List<ArticleResponse>> request = coreService.getArticlesApi().getArticlesById(coreIds, params);
+        Call<List<ArticleResponse>> request = coreService.getArticlesService().getArticlesById(coreIds, params);
         List<ArticleResponse> articleResponseList = request.execute().body();
 
         assert articleResponseList != null;
@@ -72,7 +72,7 @@ class ArticlesServiceTest {
     @Test
     void getSimilarArticles() throws IOException {
 
-        CoreService coreService = new CoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(TEST_API_KEY);
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
@@ -80,7 +80,7 @@ class ArticlesServiceTest {
         SimilarRequest similarRequest = new SimilarRequest();
         similarRequest.setText("semantic-web");
 
-        Call<ArticleSimilarResponse> request = coreService.getArticlesApi().getSimilarArticles(similarRequest, params);
+        Call<ArticleSimilarResponse> request = coreService.getArticlesService().getSimilarArticles(similarRequest, params);
         ArticleSimilarResponse articleSimilarResponse = request.execute().body();
 
         assert articleSimilarResponse != null;
@@ -91,7 +91,7 @@ class ArticlesServiceTest {
     @Test
     void searchArticlesMultipleQueries() throws IOException {
 
-        CoreService coreService = new CoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(TEST_API_KEY);
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
@@ -108,7 +108,7 @@ class ArticlesServiceTest {
 
         List<SearchRequest> searchRequestList = Arrays.asList(s1, s2);
 
-        Call<List<ArticleSearchResponse>> request = coreService.getArticlesApi().searchArticles(searchRequestList, params);
+        Call<List<ArticleSearchResponse>> request = coreService.getArticlesService().searchArticles(searchRequestList, params);
         List<ArticleSearchResponse> articleSearchResponseList = request.execute().body();
 
         assert articleSearchResponseList != null;
@@ -119,12 +119,12 @@ class ArticlesServiceTest {
     @Test
     void searchArticlesSingleQuery() throws IOException {
 
-        CoreService coreService = new CoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(TEST_API_KEY);
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
 
-        Call<ArticleSearchResponse> request = coreService.getArticlesApi().searchArticles("semantic-web", params);
+        Call<ArticleSearchResponse> request = coreService.getArticlesService().searchArticles("semantic-web", params);
         ArticleSearchResponse articleSearchResponse = request.execute().body();
 
         assert articleSearchResponse != null;
