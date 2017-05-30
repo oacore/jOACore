@@ -32,5 +32,9 @@ Call<Article> getArticleById(@Path(CORE_ID) Integer coreId, @QueryMap Map<String
 2. If you need to generate any Java Object to handle request or response, we suggest you to get a complete JSON object from the API (you need a valid CORE article ID? Use 42) and then submit it to [jsonschema2pojo](http://www.jsonschema2pojo.org/) using the Jackson 2.x annotation style. You should be able to generate a POJO (nearly) ready to be used in the client. 
 
 3. Write tests for it, you can find some tests [examples here](https://github.com/oacore/oacore4j/blob/master/src/test/java/uk/ac/core/oacore4j/articles/ArticlesServiceTest.java#L42).
+To run them locally, just type:
+```maven
+mvn test -DapiKey="{YOUR_API_KEY}"
+```
 
 Help us making the scientific world openly accessible by everyone!

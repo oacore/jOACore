@@ -21,13 +21,14 @@ import java.util.List;
 
 public class ArticlesServiceTests {
 
-    /** this is just a testing API key, please register your own API key at: https://core.ac.uk/services#api */
-    private static final String TEST_API_KEY = "btYj73TKGQahoUzL41yHANnJVeClvPIX";
+    private String readApiKey(){
+        return System.getProperty("apiKey");
+    }
 
     @Test
     public void getArticleById() throws IOException {
 
-        OACoreService coreService = new OACoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(readApiKey());
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
@@ -43,7 +44,7 @@ public class ArticlesServiceTests {
     @Test
     public void getArticlesById() throws IOException {
 
-        OACoreService coreService = new OACoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(readApiKey());
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
@@ -61,7 +62,7 @@ public class ArticlesServiceTests {
     @Test
     public void getSimilarArticles() throws IOException {
 
-        OACoreService coreService = new OACoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(readApiKey());
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
@@ -80,7 +81,7 @@ public class ArticlesServiceTests {
     @Test
     public void searchArticlesMultipleQueries() throws IOException {
 
-        OACoreService coreService = new OACoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(readApiKey());
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
@@ -108,7 +109,7 @@ public class ArticlesServiceTests {
     @Test
     public void searchArticlesSingleQuery() throws IOException {
 
-        OACoreService coreService = new OACoreService(TEST_API_KEY);
+        OACoreService coreService = new OACoreService(readApiKey());
 
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
