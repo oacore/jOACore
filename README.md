@@ -15,7 +15,7 @@ This repository is one of our project for the Mozilla Global Sprint '17.
 
 ### How to contribute
 We need help to implement our Java API client. A full Swagger documentation is available at [https://core.ac.uk/docs](https://core.ac.uk/docs),
-while you can find a usage example [here](src/test/java/uk/ac/core/oacore4j/articles/ArticlesServiceTest.java).
+while you can find a usage example [here](src/test/java/uk/ac/core/oacore4j/articles/ArticlesServiceTests.java).
 Pull requests and feedback through the issues panel are highly encouraged and appreciated.
 
 We defined a small workflow process to implement further methods in the client. These steps are suggestions, but it should help :)
@@ -33,7 +33,7 @@ We defined a small workflow process to implement further methods in the client. 
 
 2. If you need to generate any Java Object to handle request or response, we suggest you to get a complete JSON object from the API (you need a valid CORE article ID? Use 42) and then submit it to [jsonschema2pojo](http://www.jsonschema2pojo.org/) using the Jackson 2.x annotation style. You should be able to generate a POJO (nearly) ready to be used in the client. 
 
-3. Write tests for it, you can find some tests [examples here](https://github.com/oacore/oacore4j/blob/master/src/test/java/uk/ac/core/oacore4j/articles/ArticlesServiceTest.java#L42).
+3. Write tests for it, you can find some tests [examples here](https://github.com/oacore/oacore4j/blob/master/src/test/java/uk/ac/core/oacore4j/articles/ArticlesServiceTests.java).
 To run them locally, just type:
     ```maven
     mvn test -DapiKey={YOUR_API_KEY}

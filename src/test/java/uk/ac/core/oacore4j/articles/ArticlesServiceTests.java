@@ -92,7 +92,7 @@ public class ArticlesServiceTests {
         s1.setPageSize(1);
 
         SearchRequest s2 = new SearchRequest();
-        s2.setQuery("artificial intelligence");
+        s2.setQuery("artificial-intelligence");
         s2.setPage(0);
         s2.setPageSize(1);
 
