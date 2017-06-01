@@ -3,8 +3,8 @@ package uk.ac.core.oacore4j.articles;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.*;
-import uk.ac.core.oacore4j.articles.request.SearchRequest;
-import uk.ac.core.oacore4j.articles.request.SimilarRequest;
+import uk.ac.core.oacore4j.commons.SearchRequest;
+import uk.ac.core.oacore4j.commons.SimilarRequest;
 import uk.ac.core.oacore4j.articles.response.ArticleHistoryResponse;
 import uk.ac.core.oacore4j.articles.response.ArticleResponse;
 import uk.ac.core.oacore4j.articles.response.ArticleSearchResponse;
@@ -72,7 +72,7 @@ public interface ArticlesService {
                                                    @Query(PAGE_SIZE) Integer pageSize);
 
     @GET("articles/search")
-    Call<List<ArticleSearchResponse>> searchArticles(@Body List<SearchRequest> similarRequest,
+    Call<List<ArticleSearchResponse>> searchArticles(@Body List<SearchRequest> searchRequests,
                                                      @Query(LIMIT) Integer limit,
                                                      @Query(METADATA) Boolean metadata,
                                                      @Query(FULL_TEXT) Boolean fullText,
@@ -83,7 +83,7 @@ public interface ArticlesService {
                                                      @Query(FAITHFUL_METADATA) Boolean faithfulMetadata);
 
     @POST("articles/search")
-    Call<List<ArticleSearchResponse>> searchArticles(@Body List<SearchRequest> similarRequest,
+    Call<List<ArticleSearchResponse>> searchArticles(@Body List<SearchRequest> searchRequests,
                                                      @QueryMap Map<String, Object> options);
 
     @GET("articles/search/{query}")

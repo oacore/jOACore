@@ -29,7 +29,7 @@
         <version>2.20</version>
         <configuration>
           <includes>
-            <include>**/**Tests.java</include>
+            <include>**/*Tests.java</include>
           </includes>
         </configuration>
       </plugin>

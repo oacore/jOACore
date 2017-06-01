@@ -1,4 +1,4 @@
-package uk.ac.core.oacore4j.articles.request;
+package uk.ac.core.oacore4j.commons;
 
 /**
  * @author Giorgio Basile
