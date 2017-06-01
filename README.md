@@ -29,7 +29,7 @@ We defined a small workflow process to implement further methods in the client. 
     ```java 
     Call<Article> getArticleById(@Path(CORE_ID) Integer coreId, @QueryMap Map<String, Object> options); 
     ```
-   [This is an example of the interface for the Articles type](https://github.com/oacore/oacore4j/blob/master/src/main/java/uk/ac/core/oacore4j/articles/ArticlesService.java)
+   [This is an example of the interface for the Articles API](https://github.com/oacore/oacore4j/blob/master/src/main/java/uk/ac/core/oacore4j/articles/ArticlesService.java)
 
 2. If you need to generate any Java Object to handle request or response, we suggest you to get a complete JSON object from the API (you need a valid CORE article ID? Use 42) and then submit it to [jsonschema2pojo](http://www.jsonschema2pojo.org/) using the Jackson 2.x annotation style. You should be able to generate a POJO (nearly) ready to be used in the client. 
 
