@@ -1,10 +1,13 @@
 package uk.ac.core.oacore4j.articles;
 
+import okhttp3.ResponseBody;
 import org.junit.Test;
 import retrofit2.Call;
+import retrofit2.Response;
 import uk.ac.core.oacore4j.OACoreService;
 import uk.ac.core.oacore4j.articles.request.SearchRequest;
 import uk.ac.core.oacore4j.articles.request.SimilarRequest;
+import uk.ac.core.oacore4j.articles.response.ArticleHistoryResponse;
 import uk.ac.core.oacore4j.articles.response.ArticleResponse;
 import uk.ac.core.oacore4j.articles.response.ArticleSearchResponse;
 import uk.ac.core.oacore4j.articles.response.ArticleSimilarResponse;
@@ -119,6 +122,26 @@ public class ArticlesServiceTests {
 
         assert articleSearchResponse != null;
         assert articleSearchResponse.getStatus().equals("OK");
+
+    }
+
+    @Test
+    public void downloadPdf() throws IOException {
+        OACoreService coreService = new OACoreService(readApiKey());
+        Call<ResponseBody> request = coreService.getArticlesService().downloadPdf(42);
+        Response responseBody = request.execute();
+        assert responseBody.isSuccessful();
+
+    }
+
+    @Test
+    public void getArticleHistory() throws IOException {
+        OACoreService coreService = new OACoreService(readApiKey());
+        Call<ArticleHistoryResponse> request = coreService.getArticlesService().getArticleHistory(42, 1, 10);
+        ArticleHistoryResponse responseBody = request.execute().body();
+
+        assert responseBody != null;
+        assert responseBody.getStatus().equals("OK");
 
     }
 
