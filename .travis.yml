@@ -4,4 +4,4 @@ jdk:
 branches:
   only:
     - master
-script: mvn clean test coveralls:report -DapiKey=$API_KEY
+script: mvn clean test -DapiKey=$API_KEY
