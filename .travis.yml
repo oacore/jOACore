@@ -4,6 +4,4 @@ jdk:
 branches:
   only:
     - master
-script: mvn clean test -DapiKey=$API_KEY
-after_success:
-  - mvn clean test -DapiKey=$API_KEY jacoco:report coveralls:report
+script: mvn clean test jacoco:report coveralls:report -DapiKey=$API_KEY
