@@ -4,6 +4,7 @@ import okhttp3.ResponseBody;
 import org.junit.Test;
 import retrofit2.Call;
 import retrofit2.Response;
+import uk.ac.core.oacore4j.BaseTest;
 import uk.ac.core.oacore4j.OACoreService;
 import uk.ac.core.oacore4j.commons.SearchRequest;
 import uk.ac.core.oacore4j.commons.SimilarRequest;
@@ -22,11 +23,7 @@ import java.util.List;
  * @since 23/05/2017
  */
 
-public class ArticlesServiceTests {
-
-    private String readApiKey(){
-        return System.getProperty("apiKey");
-    }
+public class ArticlesServiceTests extends BaseTest{
 
     @Test
     public void getArticleById() throws IOException {

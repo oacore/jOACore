@@ -2,6 +2,7 @@ package uk.ac.core.oacore4j.repositories;
 
 import org.junit.Test;
 import retrofit2.Call;
+import uk.ac.core.oacore4j.BaseTest;
 import uk.ac.core.oacore4j.OACoreService;
 import uk.ac.core.oacore4j.commons.SearchRequest;
 import uk.ac.core.oacore4j.repositories.response.RepositoryResponse;
@@ -15,11 +16,8 @@ import java.util.List;
  * @author Giorgio Basile
  * @since 01/06/2017
  */
-public class RepositoriesServiceTests {
+public class RepositoriesServiceTests extends BaseTest {
 
-    private String readApiKey(){
-        return System.getProperty("apiKey");
-    }
 
     @Test
     public void getRepositoriesById() throws IOException {
