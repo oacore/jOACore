@@ -5,3 +5,5 @@ branches:
   only:
     - master
 script: mvn test -DapiKey=$API_KEY
+after_success:
+  - mvn coveralls:report
