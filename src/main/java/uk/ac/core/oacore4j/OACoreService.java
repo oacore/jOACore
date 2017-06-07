@@ -6,6 +6,7 @@ import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 import uk.ac.core.oacore4j.articles.ArticlesService;
+import uk.ac.core.oacore4j.journals.JournalsService;
 import uk.ac.core.oacore4j.repositories.RepositoriesService;
 import uk.ac.core.oacore4j.search.SearchAllService;
 
@@ -25,6 +26,7 @@ public class OACoreService {
     private ArticlesService articlesService;
     private RepositoriesService repositoriesService;
     private SearchAllService searchAllService;
+    private JournalsService journalsService;
 
     public OACoreService(String apiKey){
         this.apiKey = apiKey;
@@ -33,6 +35,7 @@ public class OACoreService {
         this.articlesService = retrofit.create(ArticlesService.class);
         this.repositoriesService = retrofit.create(RepositoriesService.class);
         this.searchAllService = retrofit.create(SearchAllService.class);
+        this.journalsService = retrofit.create(JournalsService.class);
     }
 
     public ArticlesService getArticlesService() {
@@ -45,6 +48,10 @@ public class OACoreService {
 
     public SearchAllService getSearchAllService() {
         return searchAllService;
+    }
+
+    public JournalsService getJournalsService() {
+        return journalsService;
     }
 
     private Retrofit createRetrofit(String apiKey){

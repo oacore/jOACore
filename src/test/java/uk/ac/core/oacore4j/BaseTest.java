@@ -6,8 +6,12 @@ package uk.ac.core.oacore4j;
  */
 public class BaseTest {
 
-    protected String readApiKey(){
-        return System.getProperty("apiKey");
+    protected String readApiKey() throws NullPointerException{
+        String apiKey = System.getProperty("apiKey");
+        if(apiKey == null){
+            throw new NullPointerException("Please provide a valid CORE API key");
+        }
+        return apiKey;
     }
 
 }
