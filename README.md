@@ -7,13 +7,31 @@ A Java client for the [CORE API](https://core.ac.uk/docs/), based on [Retrofit 2
 
 [CORE](https://core.ac.uk)’s mission is to aggregate all open access research outputs from repositories and journals worldwide and make them available to the public. In this way CORE facilitates free unrestricted access to research for all. We are currently making available 70 million of research outputs metadata and 7 million full text papers. We are looking for devs, designers, data scientists enthusiastic about facilitating the access to research to the world.
 
-
-## Mozilla Global Sprint '17
 This repository is one of our project for the Mozilla Global Sprint '17. 
 
 ![Global Sprint](https://cloud.githubusercontent.com/assets/617994/24632585/b2b07dcc-1892-11e7-91cf-f9e473187cf7.png)
 
-### How to contribute
+## Usage
+1. Add the JitPack repository to your build file
+    ```
+    <repositories>
+      <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+      </repository>
+    </repositories>
+    ```
+    
+2. Add the dependency
+    ```
+    <dependency>
+      <groupId>com.github.oacore</groupId>
+      <artifactId>oacore4j</artifactId>
+      <version>v1.0.0</version>
+    </dependency>
+	  ```
+
+## How to contribute
 A full Swagger documentation is available at [https://core.ac.uk/docs](https://core.ac.uk/docs),
 while you can find a usage example [here](src/test/java/uk/ac/core/oacore4j/articles/ArticlesServiceTests.java).
 Pull requests and feedback through the issues panel are highly encouraged and appreciated.
@@ -35,7 +53,7 @@ We defined a small workflow process to implement further methods in the client. 
 
 3. Write tests for it, you can find some tests [examples here](https://github.com/oacore/oacore4j/blob/master/src/test/java/uk/ac/core/oacore4j/articles/ArticlesServiceTests.java).
 To run them locally, just type:
-    ```maven
+    ```
     mvn test -DapiKey={YOUR_API_KEY}
     ```
 
