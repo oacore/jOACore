@@ -6,7 +6,7 @@
 
   <groupId>uk.ac.core</groupId>
   <artifactId>oacore4j</artifactId>
-  <version>1.0</version>
+  <version>1.0.0</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,11 +33,6 @@
           </includes>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.eluder.coveralls</groupId>
-        <artifactId>coveralls-maven-plugin</artifactId>
-        <version>4.3.0</version>
-      </plugin>
     </plugins>
   </build>
 
@@ -61,11 +56,6 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.0.0-M4</version>
     </dependency>
   </dependencies>
 
