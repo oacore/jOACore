@@ -33,7 +33,7 @@ public class ArticlesServiceTests extends BaseTest{
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
 
-        Call<ArticleResponse> request = coreService.getArticlesService().getArticleById(42, params);
+        Call<ArticleResponse> request = coreService.getArticlesService().getArticleById(43, params);
         ArticleResponse article = request.execute().body();
 
         assert article != null;
@@ -49,7 +49,7 @@ public class ArticlesServiceTests extends BaseTest{
         HashMap<String, Object> params = new HashMap<>();
         params.put(ArticlesService.CITATIONS, Boolean.TRUE);
 
-        List<Integer> coreIds = Arrays.asList(42, 43);
+        List<Integer> coreIds = Arrays.asList(44, 43);
 
         Call<List<ArticleResponse>> request = coreService.getArticlesService().getArticlesById(coreIds, params);
         List<ArticleResponse> articleResponseList = request.execute().body();
@@ -125,7 +125,7 @@ public class ArticlesServiceTests extends BaseTest{
     @Test
     public void downloadPdf() throws IOException {
         OACoreService coreService = new OACoreService(readApiKey());
-        Call<ResponseBody> request = coreService.getArticlesService().downloadPdf(42);
+        Call<ResponseBody> request = coreService.getArticlesService().downloadPdf(43);
         Response responseBody = request.execute();
         assert responseBody.isSuccessful();
 
@@ -134,7 +134,7 @@ public class ArticlesServiceTests extends BaseTest{
     @Test
     public void getArticleHistory() throws IOException {
         OACoreService coreService = new OACoreService(readApiKey());
-        Call<ArticleHistoryResponse> request = coreService.getArticlesService().getArticleHistory(42, 1, 10);
+        Call<ArticleHistoryResponse> request = coreService.getArticlesService().getArticleHistory(43, 1, 10);
         ArticleHistoryResponse responseBody = request.execute().body();
 
         assert responseBody != null;

@@ -82,6 +82,12 @@ public class Article {
     private String fulltextIdentifier;
     @JsonProperty("oai")
     private String oai;
+    @JsonProperty("publisher")
+    private String publisher;
+    @JsonProperty("doi")
+    private String doi;
+    @JsonProperty("downloadUrl")
+    private String downloadUrl;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -303,6 +309,36 @@ public class Article {
     @JsonProperty("oai")
     public void setOai(String oai) {
         this.oai = oai;
+    }
+
+    @JsonProperty("publisher")
+    public String getPublisher() {
+        return publisher;
+    }
+
+    @JsonProperty("publisher")
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    @JsonProperty("doi")
+    public String getDoi() {
+        return doi;
+    }
+
+    @JsonProperty("doi")
+    public void setDoi(String doi) {
+        this.doi = doi;
+    }
+
+    @JsonProperty("downloadUrl")
+    public String getDownloadUrl() {
+        return downloadUrl;
+    }
+
+    @JsonProperty("downloadUrl")
+    public void setDownloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
     }
 
     @JsonAnyGetter
