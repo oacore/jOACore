@@ -21,9 +21,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "description",
     "fullText",
     "identifiers",
+    "journals",
     "language",
     "relations",
-"uk/ac/core/oacore4j/repositories",
+    "repositories",
     "similarities",
     "subjects",
     "title",
@@ -43,9 +44,9 @@ public class Article {
     @JsonProperty("authors")
     private List<String> authors = null;
     @JsonProperty("citations")
-    private List<Object> citations = null;
+    private List<Citation> citations = null;
     @JsonProperty("contributors")
-    private List<Object> contributors = null;
+    private List<String> contributors = null;
     @JsonProperty("datePublished")
     private String datePublished;
     @JsonProperty("description")
@@ -54,22 +55,24 @@ public class Article {
     private String fullText;
     @JsonProperty("identifiers")
     private List<String> identifiers = null;
+    @JsonProperty("journalss")
+    private List<ArticleJournal> journals = null;
     @JsonProperty("language")
     private Language language;
     @JsonProperty("relations")
-    private List<Object> relations = null;
-    @JsonProperty("uk/ac/core/oacore4j/repositories")
+    private List<String> relations = null;
+    @JsonProperty("repositories")
     private List<Repository> repositories = null;
     @JsonProperty("similarities")
-    private List<Similarity> similarities = null;
+    private List<Similar> similarities = null;
     @JsonProperty("subjects")
-    private List<Object> subjects = null;
+    private List<String> subjects = null;
     @JsonProperty("title")
     private String title;
     @JsonProperty("topics")
-    private List<Object> topics = null;
+    private List<String> topics = null;
     @JsonProperty("types")
-    private List<Object> types = null;
+    private List<String> types = null;
     @JsonProperty("year")
     private Integer year;
     @JsonProperty("duplicates")
@@ -89,7 +92,7 @@ public class Article {
     @JsonProperty("downloadUrl")
     private String downloadUrl;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     @JsonProperty("id")
     public String getId() {
@@ -112,22 +115,22 @@ public class Article {
     }
 
     @JsonProperty("citations")
-    public List<Object> getCitations() {
+    public List<Citation> getCitations() {
         return citations;
     }
 
     @JsonProperty("citations")
-    public void setCitations(List<Object> citations) {
+    public void setCitations(List<Citation> citations) {
         this.citations = citations;
     }
 
     @JsonProperty("contributors")
-    public List<Object> getContributors() {
+    public List<String> getContributors() {
         return contributors;
     }
 
     @JsonProperty("contributors")
-    public void setContributors(List<Object> contributors) {
+    public void setContributors(List<String> contributors) {
         this.contributors = contributors;
     }
 
@@ -171,6 +174,16 @@ public class Article {
         this.identifiers = identifiers;
     }
 
+    @JsonProperty("journals")
+    public List<ArticleJournal> getJournals() {
+        return journals;
+    }
+
+    @JsonProperty("journals")
+    public void setJournals(List<ArticleJournal> journals) {
+        this.journals = journals;
+    }
+
     @JsonProperty("language")
     public Language getLanguage() {
         return language;
@@ -182,42 +195,42 @@ public class Article {
     }
 
     @JsonProperty("relations")
-    public List<Object> getRelations() {
+    public List<String> getRelations() {
         return relations;
     }
 
     @JsonProperty("relations")
-    public void setRelations(List<Object> relations) {
+    public void setRelations(List<String> relations) {
         this.relations = relations;
     }
 
-    @JsonProperty("uk/ac/core/oacore4j/repositories")
+    @JsonProperty("repositories")
     public List<Repository> getRepositories() {
         return repositories;
     }
 
-    @JsonProperty("uk/ac/core/oacore4j/repositories")
+    @JsonProperty("repositories")
     public void setRepositories(List<Repository> repositories) {
         this.repositories = repositories;
     }
 
     @JsonProperty("similarities")
-    public List<Similarity> getSimilarities() {
+    public List<Similar> getSimilarities() {
         return similarities;
     }
 
     @JsonProperty("similarities")
-    public void setSimilarities(List<Similarity> similarities) {
+    public void setSimilarities(List<Similar> similarities) {
         this.similarities = similarities;
     }
 
     @JsonProperty("subjects")
-    public List<Object> getSubjects() {
+    public List<String> getSubjects() {
         return subjects;
     }
 
     @JsonProperty("subjects")
-    public void setSubjects(List<Object> subjects) {
+    public void setSubjects(List<String> subjects) {
         this.subjects = subjects;
     }
 
@@ -232,22 +245,22 @@ public class Article {
     }
 
     @JsonProperty("topics")
-    public List<Object> getTopics() {
+    public List<String> getTopics() {
         return topics;
     }
 
     @JsonProperty("topics")
-    public void setTopics(List<Object> topics) {
+    public void setTopics(List<String> topics) {
         this.topics = topics;
     }
 
     @JsonProperty("types")
-    public List<Object> getTypes() {
+    public List<String> getTypes() {
         return types;
     }
 
     @JsonProperty("types")
-    public void setTypes(List<Object> types) {
+    public void setTypes(List<String> types) {
         this.types = types;
     }
 

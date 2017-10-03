@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "simhash",
     "score"
 })
-public class Similarity {
+public class Similar {
 
     @JsonProperty("id")
     private String id;
@@ -44,7 +44,7 @@ public class Similarity {
     @JsonProperty("score")
     private Double score;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     @JsonProperty("id")
     public String getId() {

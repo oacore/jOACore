@@ -10,6 +10,8 @@ import uk.ac.core.oacore4j.journals.JournalsService;
 import uk.ac.core.oacore4j.repositories.RepositoriesService;
 import uk.ac.core.oacore4j.search.SearchAllService;
 
+import java.util.concurrent.TimeUnit;
+
 
 /**
  * @author Giorgio Basile
@@ -71,6 +73,7 @@ public class OACoreService {
             request = request.newBuilder().url(url).build();
             return chain.proceed(request);
         });
+        httpClient.connectTimeout(30, TimeUnit.SECONDS);
         return httpClient.build();
     }
 }
