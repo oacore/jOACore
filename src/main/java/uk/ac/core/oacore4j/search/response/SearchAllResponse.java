@@ -24,9 +24,9 @@ public class SearchAllResponse {
     @JsonProperty("totalHits")
     private Integer totalHits;
     @JsonProperty("data")
-    private List<SearchHit> data = null;
+    private List<Resource> data = null;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     @JsonProperty("status")
     public String getStatus() {
@@ -49,12 +49,12 @@ public class SearchAllResponse {
     }
 
     @JsonProperty("data")
-    public List<SearchHit> getData() {
+    public List<Resource> getData() {
         return data;
     }
 
     @JsonProperty("data")
-    public void setData(List<SearchHit> data) {
+    public void setData(List<Resource> data) {
         this.data = data;
     }
 

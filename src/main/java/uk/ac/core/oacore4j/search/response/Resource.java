@@ -15,14 +15,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "type",
     "id"
 })
-public class SearchHit {
+public class Resource {
 
     @JsonProperty("type")
     private String type;
     @JsonProperty("id")
     private String id;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     @JsonProperty("type")
     public String getType() {
